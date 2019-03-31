@@ -5,6 +5,8 @@
 	<div class="row">
 		<div class="col">
 			<h1>{{ object.title }}</h1>
+			{{ object.timestamp|timesince }}
+			<h3>{{ "some title here"|title }}</h3>
 			{{ object.description|linebreaks }}</br>
 			<p>Preço: {{ object.price }}</p>
 			{{ object.slug }}
