@@ -59,8 +59,10 @@ class Product(models.Model):
 	image		= models.ImageField(upload_to=upload_image_path, null=True, blank=True)
 	# Usados para filtros
 	featured 	= models.BooleanField(default=False)
-	active 	= models.BooleanField(default=True)
+	active 		= models.BooleanField(default=True)
+	timestamp 	= models.DateTimeField(auto_now_add=True)
 
+	# Gerenciador dos objetos (Consultas)
 	objects = ProductManager()
 
 	def get_absolute_url(self):
