@@ -57,7 +57,9 @@ def m2m_changed_cart_receiver(sender, instance, action, *args, **kwargs):
 m2m_changed.connect(m2m_changed_cart_receiver, sender=Cart.products.through)
 
 def pre_save_cart_receiver(sender, instance, *arg, **kwargs):
-
-	instance.total = float(instance.subtotal) * 1.01
+	if instance.total < 0:
+		instance.total = float(instance.subtotal) * 1.01
+	else:
+		instance.total = instance.subtotal
 
 pre_save.connect(pre_save_cart_receiver, sender=Cart)
