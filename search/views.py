@@ -19,7 +19,7 @@ class SearchProductView(ListView):
 		# print(request.GET)
 		method_dict = request.GET
 		query = method_dict.get('q', None)
-		# print(query)
+		print(query)
 		if query is not None:
 			return Product.objects.search(query)
 		return Product.objects.featured()

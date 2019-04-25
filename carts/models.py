@@ -1,3 +1,4 @@
+from decimal import Decimal
 from django.conf import settings
 from django.db import models
 from django.db.models.signals import pre_save, post_save, m2m_changed
@@ -57,9 +58,9 @@ def m2m_changed_cart_receiver(sender, instance, action, *args, **kwargs):
 m2m_changed.connect(m2m_changed_cart_receiver, sender=Cart.products.through)
 
 def pre_save_cart_receiver(sender, instance, *arg, **kwargs):
-	if instance.total < 0:
-		instance.total = float(instance.subtotal) * 1.01
+	if instance.subtotal > 0:
+		instance.total = Decimal(instance.subtotal) * Decimal(1.08) #  8% tax
 	else:
-		instance.total = instance.subtotal
+		instance.total = 0.00
 
 pre_save.connect(pre_save_cart_receiver, sender=Cart)
