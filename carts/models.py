@@ -61,6 +61,6 @@ def pre_save_cart_receiver(sender, instance, *arg, **kwargs):
 	if instance.subtotal > 0:
 		instance.total = Decimal(instance.subtotal) * Decimal(1.08) #  8% tax
 	else:
-		instance.total = 0.00
+		instance.total = Decimal(0.00)
 
 pre_save.connect(pre_save_cart_receiver, sender=Cart)
