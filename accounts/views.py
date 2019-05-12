@@ -3,10 +3,9 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.utils.http import is_safe_url
 
-# importação do formulario de forms.py
 from .forms import LoginForm, RegisterForm, GuestForm
-
 from .models import GuestEmail
+
 
 def guest_register_view(request):
 	form = GuestForm(request.POST or None)
