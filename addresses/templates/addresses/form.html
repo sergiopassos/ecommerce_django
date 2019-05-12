@@ -3,6 +3,6 @@
 	{% if next_url %}
 	<input type='hidden' name='next' value='{{ next_url }}' />
 	{% endif %}
-	{{ form }}
+	{{ form.as_p }}
 	<button type="submit" class="btn btn-secondary">Submit</button>
 </form>
