@@ -12,6 +12,7 @@ class AddressForm(forms.ModelForm):
 			'address_line_2',
 			'city',
 			'country',
+			'state',
 			'postal_code',
 
 		]
