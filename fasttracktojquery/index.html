@@ -21,6 +21,7 @@
         .description {
             width: 250px;
             height: 300px;
+            padding: 30px 10px;
         }
     </style>
 
@@ -181,7 +182,7 @@
 
 
 
-    <script type="text/javascript">
+  <!-- <script type="text/javascript">
         $(document).ready(function(){
             var num = 124
             var someString = "some string"
@@ -199,14 +200,36 @@
             })
 
         })
-    </script>
+    </script> -->
 
 
 
 
 
 
-    {% comment %} <script type="text/javascript">
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var $descriptionItems = $(".description")
+            // console.log($descriptionItems.length) // 0, 1, 2
+
+            $.each($descriptionItems, function(index, obj){
+                var item = $(this)
+                var actualHeight = item[0].scrollHeight
+                var shouldBeHeight = item.height()
+                console.log(actualHeight, shouldBeHeight)
+                if (actualHeight > shouldBeHeight + 50){
+                    item.css("overflow-y", "scroll")
+                }
+            })
+
+
+        })
+    </script> 
+
+
+
+
+ <!-- <script type="text/javascript">
         $(document).ready(function(){
             // jquery is ready to roll
             // $(selectr)
@@ -230,7 +253,7 @@
             }, 2000); // in ms
 
         })
-    </script> {% endcomment %}
+    </script>  -->
 
 
 
