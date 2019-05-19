@@ -11,12 +11,22 @@
         /*body {
             background-color: red;
         }*/
+        h1{
+            color: green;
+        }
+
+        #header-3{
+
+        }
     </style>
 
-    <title>Olá, mundo!</title>
+    <title>Hello, world!</title>
   </head>
   <body>
-    <h1>Olá, mundo!</h1>
+    <h1 class="header">Hello, world!</h1>
+    <h1 class="header">Hello, world!</h1>
+    <h1 class="header" id='header-3'>Hello, world!</h1>
+    <h1 class="header">Hello, world!</h1>
 
     <!-- JavaScript (Opcional) -->
     <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
@@ -33,8 +43,12 @@
             // $(selectr)
             // $('body').css("background-color", "red")
             setTimeout(function(){
-                $('body').css("background-color", "red")                
-            }, 5000); // in ms
+                // $('body').css("background-color", "red")    
+                $('h1').css("color", "purple")
+                $('h1:nth-child(2)').text("Hello again!")     
+                $('#header-3').text("Hello again header-3!").css("color", "red")
+                $(".header").css("background-color", "green").css("padding", "30px")
+            }, 2000); // in ms
 
         })
     </script>
