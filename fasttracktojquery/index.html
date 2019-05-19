@@ -181,9 +181,32 @@
 
 
 
-
-
     <script type="text/javascript">
+        $(document).ready(function(){
+            var num = 124
+            var someString = "some string"
+            var someArray = [num, 123, 1233, "an so on"]
+            var someBool = true
+            $.each(someArray, function(index, obj){
+                console.log(index, obj)
+                if (obj %2 == 0 && someBool){
+                    console.log(obj, "is even")
+                } else if (obj%3 == 0 && someBool){
+                    console.log(obj, "by 3")
+                } else {
+                    console.log(obj, "false and/or is not even")
+                }
+            })
+
+        })
+    </script>
+
+
+
+
+
+
+    {% comment %} <script type="text/javascript">
         $(document).ready(function(){
             // jquery is ready to roll
             // $(selectr)
@@ -207,7 +230,7 @@
             }, 2000); // in ms
 
         })
-    </script>
+    </script> {% endcomment %}
 
 
 
