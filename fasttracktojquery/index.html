@@ -30,8 +30,10 @@
   <body>
     <h1 class='header'>Hello, world!</h1>
     <h1 class='header'>Hello, world!</h1>
-    <h1 class='header' id='header-3'>Hello, world!</h1>
+    <h1 class='header' id='header-3'>Header 3</h1>
     <h1 class='header'>Hello, world!</h1>
+
+    <p class='description'><a href="/abc/">Some Link</a></p>
     <p class='description'>Another Paragraph</p>
     <p class='description'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquam sed dolor quis blandit. Quisque mattis egestas
     ultrices. Aenean imperdiet ut ex quis scelerisque. Nam elementum augue non lorem consequat iaculis. Phasellus neque
@@ -216,12 +218,29 @@
                 var item = $(this)
                 var actualHeight = item[0].scrollHeight
                 var shouldBeHeight = item.height()
-                console.log(actualHeight, shouldBeHeight)
+                // console.log(actualHeight, shouldBeHeight)
                 if (actualHeight > shouldBeHeight + 50){
                     item.css("overflow-y", "scroll")
                 }
             })
 
+            var header3 = $("#header-3")
+            header3.click(function(event){
+                var $this = $(this)
+                console.log($this)
+                console.log(event)
+                window.location.href = 'http://www.google.com'
+            })
+
+            var descriptionLinks = $(".description a")
+            descriptionLinks.click(function(event){
+                console.log(event)
+                event.preventDefault()
+                var $this = $(this)
+                var href = $this.attr("href")
+                alert(href)
+                window.location.href = href
+            })
 
         })
     </script> 
