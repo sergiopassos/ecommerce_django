@@ -15,5 +15,39 @@
       {% block content %}{% endblock %}
     </div> 
     {% include 'base/js.html' %}
+
+    <script>
+      $(document).ready(function() {
+        var productForm = $(".form-product-ajax") // selecionando o objeto do html para criar a variavel
+
+        productForm.submit(function(event){ // iniciamos a criação da iteração do objeto
+            event.preventDefault();
+            console.log("Form is not sending") // debug
+            var thisForm = $(this) // tipo o self
+            var actionEndpoint = thisForm.attr("action"); // atribui o metodo que vira no action na variavel
+            var httpMethod = thisForm.attr("method");
+            var formData = thisForm.serialize();
+
+
+          $.ajax({
+            url: actionEndpoint,
+            method: httpMethod,
+            data: formData,
+            success: function(data){
+              console.log("success")
+              console.log(data)              
+
+            },
+            error: function(errorData) {
+              console.log("error")
+              console.log(errorData)
+              
+            }
+          })
+        })
+   
+
+        })
+    </script>
   </body>
 </html>
